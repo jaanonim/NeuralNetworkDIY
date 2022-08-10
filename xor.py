@@ -12,7 +12,7 @@ def main():
 
     network = [DenseLayer(2, 3), TanhLayer(), DenseLayer(3, 1), TanhLayer()]
 
-    train(network, mse, mse_prime, X, Y, epochs=100000, learning_rate=0.1)
+    train(network, mse, mse_prime, X, Y, epochs=10000, learning_rate=0.2)
 
     for x, y in zip(X, Y):
         out = process(network, x)

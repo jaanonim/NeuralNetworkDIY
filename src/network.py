@@ -25,10 +25,10 @@ def train(
             error += loss(y, output)
 
             # backward
-            grad = -loss_prime(y, output)
+            grad = loss_prime(y, output)
             for layer in reversed(network):
                 grad = layer.backward(grad, learning_rate)
 
         error /= len(x_train)
-        if verbose:
+        if verbose and e % 10 == 0:
             print(f"{e + 1}/{epochs}, error={error}")
