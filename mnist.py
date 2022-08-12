@@ -6,6 +6,7 @@ from src.layers.convolutional import ConvolutionalLayer
 from src.layers.dense import DenseLayer
 from src.layers.reshape import ReshapeLayer
 from src.layers.sigmoid import SigmoidLayer
+from src.layers.softmax import SoftmaxLayer
 from src.loss import binary_cross_entropy, binary_cross_entropy_prime
 from src.network import process, train
 
@@ -31,7 +32,7 @@ network = [
     DenseLayer(100, 100),
     SigmoidLayer(),
     DenseLayer(100, 10),
-    SigmoidLayer(),
+    SoftmaxLayer(),
 ]
 
 train(
@@ -40,8 +41,8 @@ train(
     binary_cross_entropy_prime,
     x_train,
     y_train,
-    epochs=500,
-    learning_rate=0.2,
+    epochs=1000,
+    learning_rate=0.1,
 )
 
 
